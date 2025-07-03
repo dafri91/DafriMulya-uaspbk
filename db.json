@@ -1,0 +1,788 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MacBook Pro 16-inch M3 Pro",
+      "brand": "Apple",
+      "category": "Laptops",
+      "price": 43500000,
+      "originalPrice": 47999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lwy3i64h18hae3.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lwy3i64h18hae3.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lwy3i64gztwu11.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r991-lwy3i64h41m67e.webp"
+      ],
+      "description": "Laptop super bertenaga dengan chip M3 Pro, RAM 18GB, dan SSD 512GB. Sempurna untuk para profesional dan kreator konten yang membutuhkan performa maksimal.",
+      "specifications": {
+        "processor": "Apple M3 Pro chip (12-core CPU, 18-core GPU)",
+        "ram": "18GB Unified Memory",
+        "storage": "512GB SSD",
+        "display": "16.2-inch Liquid Retina XDR display"
+      },
+      "rating": 4.9,
+      "reviews": 215,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Apple iPhone 15 128GB",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "price": 11899000,
+      "originalPrice": 13999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r991-lvye8tydmst732.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r991-lvye8tydmst732.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r991-lvye8tydply3e0.webp"
+      ],
+      "description": "iPhone generasi sebelumnya yang masih sangat mumpuni dengan Chip A16 Bionic, sistem kamera ganda canggih, dan layar Super Retina XDR yang cerah.",
+      "specifications": {
+        "processor": "A16 Bionic chip",
+        "storage": "128GB",
+        "camera": "48MP Main + 12MP Ultra Wide",
+        "display": "6.1-inch Super Retina XDR display"
+      },
+      "rating": 4.8,
+      "reviews": 578,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        4,
+        6,
+        11
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dell XPS 13 Plus (9320)",
+      "brand": "Dell",
+      "category": "Laptops",
+      "price": 21500000,
+      "originalPrice": 26499000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7rbk5-maz6soz0o07yae.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7rbk5-maz6soz0o07yae.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7rbka-maz6soz0o0d24e.webp"
+      ],
+      "description": "Laptop ultra-portabel dengan desain futuristik, prosesor Intel Core i7 Generasi ke-13, RAM 16GB, dan layar InfinityEdge yang memukau.",
+      "specifications": {
+        "processor": "Intel Core i7-1360P",
+        "ram": "16GB LPDDR5",
+        "storage": "512GB NVMe SSD",
+        "display": "13.4-inch FHD+ (1920 x 1200) InfinityEdge"
+      },
+      "rating": 4.7,
+      "reviews": 112,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        1,
+        7,
+        9
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Samsung Galaxy S24 Ultra 12/256GB",
+      "brand": "Samsung",
+      "category": "Smartphones",
+      "price": 18500000,
+      "originalPrice": 21999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lqu4zk7dk5wu12.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lsgx3h0b36tl94.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lsgx3h0b5zyh2a.webp"
+      ],
+      "description": "Smartphone Android premium rilisan 2024 dengan Galaxy AI, S Pen, sistem kamera 200MP, dan performa Snapdragon 8 Gen 3 for Galaxy.",
+      "specifications": {
+        "processor": "Snapdragon 8 Gen 3 for Galaxy",
+        "storage": "256GB",
+        "camera": "200MP Wide + 12MP Ultra-Wide + 50MP Telephoto (5x Optical Zoom)",
+        "display": "6.8-inch Dynamic AMOLED 2X QHD+"
+      },
+      "rating": 4.9,
+      "reviews": 602,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        2,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+      "brand": "Sony",
+      "category": "Audio",
+      "price": 4499000,
+      "originalPrice": 5499000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m7rr6d1t170h83.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m7rr6d1t170h83.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7rasi-m3gi0ey58rmc9f.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7rasc-m3gi0ey5czbo9a.webp"
+      ],
+      "description": "Headphone peredam bising terbaik di industri dengan kualitas suara premium, prosesor terintegrasi V1, dan desain yang sangat nyaman.",
+      "specifications": {
+        "driver": "30mm Dynamic Driver",
+        "battery": "Up to 30 hours (NC on)",
+        "connectivity": "Bluetooth 5.2 with Multi-point connection",
+        "features": "Industry-Leading Active Noise Canceling, Hi-Res Audio"
+      },
+      "rating": 4.9,
+      "reviews": 890,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        7,
+        13,
+        15
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Apple iPad Pro 12.9-inch M2 (Wi-Fi, 256GB)",
+      "brand": "Apple",
+      "category": "Tablets",
+      "price": 18999000,
+      "originalPrice": 23499000,
+      "image": "https://down-id.img.susercontent.com/file/sg-11134201-7rfg3-m3hc49zzfgq0a5.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/sg-11134201-7rfg3-m3hc49zzfgq0a5.webp",
+        "https://down-id.img.susercontent.com/file/sg-11134201-7rfhl-m3hc4aoofdqm39.webp"
+      ],
+      "description": "Tablet profesional generasi sebelumnya dengan performa luar biasa dari chip M2, layar Liquid Retina XDR, dan dukungan Apple Pencil (generasi ke-2).",
+      "specifications": {
+        "processor": "Apple M2 chip (8-core CPU, 10-core GPU)",
+        "storage": "256GB",
+        "display": "12.9-inch Liquid Retina XDR display with ProMotion",
+        "connectivity": "Wi-Fi 6E + Bluetooth 5.3"
+      },
+      "rating": 4.8,
+      "reviews": 310,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        1,
+        2,
+        12
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Logitech MX Master 3S Wireless Mouse",
+      "brand": "Logitech",
+      "category": "Accessories",
+      "price": 1399000,
+      "originalPrice": 1699000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7rasa-m5v5ydsom1q81d.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7rasa-m5v5ydsom1q81d.webp",
+        "https://down-id.img.susercontent.com/file/dfec268da7683809e60882442c9f0125.webp"
+      ],
+      "description": "Mouse nirkabel canggih dengan sensor 8K DPI, klik senyap, dan scrolling MagSpeed yang sangat presisi. Dirancang untuk para profesional dan programmer.",
+      "specifications": {
+        "connectivity": "Bluetooth Low Energy, Logi Bolt USB Receiver",
+        "battery": "Up to 70 days on a full charge",
+        "dpi": "8000 DPI Darkfield sensor",
+        "compatibility": "Windows, macOS, Linux, ChromeOS, iPadOS"
+      },
+      "rating": 4.9,
+      "reviews": 1250,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        3,
+        5,
+        13
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Samsung Odyssey G7 27-inch Curved Gaming Monitor",
+      "brand": "Samsung",
+      "category": "Monitors",
+      "price": 7500000,
+      "originalPrice": 9500000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lqx0r78jvy4dd7.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lqx0r78jvy4dd7.webp"
+      ],
+      "description": "Monitor gaming legendaris dengan kelengkungan 1000R, resolusi QHD, refresh rate 240Hz, dan response time 1ms untuk pengalaman gaming imersif.",
+      "specifications": {
+        "resolution": "2560 x 1440 (QHD)",
+        "refresh_rate": "240Hz",
+        "panel_type": "QLED with 1000R curved screen",
+        "features": "HDR600, G-Sync Compatible, FreeSync Premium Pro"
+      },
+      "rating": 4.8,
+      "reviews": 432,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        9,
+        10,
+        15
+      ]
+    },
+    {
+      "id": 9,
+      "name": "ASUS ROG Zephyrus G14 (2024)",
+      "brand": "ASUS",
+      "category": "Laptops",
+      "price": 31500000,
+      "originalPrice": 34999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7ra0h-mbhn7993ml0e4a.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7ra0h-mbhn7993ml0e4a.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7ra0q-mbhn799niyhg9d.webp"
+      ],
+      "description": "Laptop gaming 14-inch paling powerful dengan sasis CNC aluminium, ditenagai AMD Ryzen 9 dan NVIDIA GeForce RTX 4060, serta layar ROG Nebula Display OLED.",
+      "specifications": {
+        "processor": "AMD Ryzen 9 8945HS",
+        "ram": "16GB LPDDR5X",
+        "storage": "1TB PCIe 4.0 NVMe M.2 SSD",
+        "display": "14-inch ROG Nebula Display QHD+ OLED 120Hz"
+      },
+      "rating": 4.8,
+      "reviews": 189,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        1,
+        3,
+        10
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Razer DeathAdder V3 Pro Wireless Gaming Mouse",
+      "brand": "Razer",
+      "category": "Gaming Peripherals",
+      "price": 2100000,
+      "originalPrice": 2599000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lx0sx4eeuiwa55.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lx0sx4eeuiwa55.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98y-lx0sx4eeuiwa55.webp"
+      ],
+      "description": "Mouse gaming nirkabel ultra-ringan (63g) yang dirancang untuk performa esports. Bentuk ergonomis yang disempurnakan untuk kenyamanan dan presisi maksimal.",
+      "specifications": {
+        "connectivity": "Razer HyperSpeed Wireless, USB-C",
+        "battery": "Up to 90 hours",
+        "dpi": "30000 DPI Focus Pro Optical Sensor",
+        "features": "Optical Mouse Switches Gen-3, 63g ultra-lightweight"
+      },
+      "rating": 4.9,
+      "reviews": 780,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        7,
+        8,
+        13
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Xiaomi 14",
+      "brand": "Xiaomi",
+      "category": "Smartphones",
+      "price": 10999000,
+      "originalPrice": 11999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r991-luq2npsbqgsqac.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r991-luq2npsbqgsqac.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98p-luq2npsbqgiv18.webp"
+      ],
+      "description": "Smartphone flagship ringkas dengan kamera Leica generasi terbaru. Ditenagai oleh Snapdragon 8 Gen 3 untuk performa dan efisiensi daya yang luar biasa.",
+      "specifications": {
+        "processor": "Snapdragon 8 Gen 3",
+        "storage": "256GB UFS 4.0",
+        "camera": "Leica Vario-Summilux lens, 50MP Main + 50MP Telephoto + 50MP Ultrawide",
+        "display": "6.36-inch CrystalRes AMOLED 1.5K 120Hz"
+      },
+      "rating": 4.8,
+      "reviews": 412,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        2,
+        4,
+        12
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Samsung Galaxy Watch 6 Classic (47mm)",
+      "brand": "Samsung",
+      "category": "Wearables",
+      "price": 4999000,
+      "originalPrice": 5999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134201-7rbk9-m6wbxk3yfrzg26.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134201-7rbk9-m6wbxk3yfrzg26.webp",
+        "https://down-id.img.susercontent.com/file/id-11134201-7rbk6-m6wbxk3oeqw731.webp",
+        "https://down-id.img.susercontent.com/file/id-11134201-7rbkd-m6wbxk709ws48c.webp"
+      ],
+      "description": "Smartwatch dengan desain klasik bezel putar yang ikonik. Pantau kesehatan dan kebugaran Anda dengan fitur-fitur canggih seperti sensor suhu dan deteksi jatuh.",
+      "specifications": {
+        "display": "1.5-inch Super AMOLED, Sapphire Crystal Glass",
+        "processor": "Exynos W930 Dual-Core 1.4GHz",
+        "features": "BioActive Sensor (Heart Rate, ECG, BIA), Sleep Tracking",
+        "material": "Stainless Steel Case"
+      },
+      "rating": 4.8,
+      "reviews": 388,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        4,
+        2,
+        6
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Keychron K2 Pro QMK/VIA Wireless Mechanical Keyboard",
+      "brand": "Keychron",
+      "category": "Gaming Peripherals",
+      "price": 1450000,
+      "originalPrice": 1700000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lz8mppt9qmnc94@resize_w900_nl.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lz8mppt9qmnc94@resize_w900_nl.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7r98u-lz8mppt9uucoa4.webp"
+      ],
+      "description": "Keyboard mekanikal nirkabel yang sepenuhnya dapat disesuaikan. Mendukung QMK/VIA untuk kustomisasi tanpa batas, hot-swappable, dan kompatibel dengan Mac & Windows.",
+      "specifications": {
+        "layout": "75%",
+        "connectivity": "Bluetooth 5.1, USB-C",
+        "switch_type": "Keychron K Pro Mechanical (Hot-swappable)",
+        "features": "Sound Absorbing Foam, South-facing RGB, PBT keycaps"
+      },
+      "rating": 4.9,
+      "reviews": 350,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        7,
+        3,
+        10
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Nintendo Switch - OLED Model",
+      "brand": "Nintendo",
+      "category": "Gaming Consoles",
+      "price": 4450000,
+      "originalPrice": 5199000,
+      "image": "https://down-id.img.susercontent.com/file/e046990bcb298b7c27b531ec13b94b86.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/e046990bcb298b7c27b531ec13b94b86.webp",
+        "https://down-id.img.susercontent.com/file/47182724afc28bf6a25900f882b4ba36.webp",
+        "https://down-id.img.susercontent.com/file/2bba0a82e1571009c496be0eb2fc0811.webp"
+      ],
+      "description": "Konsol game hibrida dengan layar OLED 7 inci yang hidup untuk warna yang lebih intens dan kontras yang tajam. Mainkan game favorit Anda di mana saja, kapan saja.",
+      "specifications": {
+        "display": "7.0-inch OLED 1280x720",
+        "storage": "64GB Internal (expandable via microSD)",
+        "connectivity": "Wi-Fi, Bluetooth 4.1, LAN (via dock)",
+        "modes": "TV mode, Tabletop mode, Handheld mode"
+      },
+      "rating": 4.9,
+      "reviews": 950,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        15,
+        8,
+        5
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Sony PlayStation 5 Slim - Disc Edition",
+      "brand": "Sony",
+      "category": "Gaming Consoles",
+      "price": 8599000,
+      "originalPrice": 9699000,
+      "image": "https://media.dinomarket.com/docs/imgTD/2024-02/DM_CA961EB8D9C88E81647BBFE7417EB9C0_210224140212_ll.jpg",
+      "images": [
+        "https://media.dinomarket.com/docs/imgTD/2024-02/DM_CA961EB8D9C88E81647BBFE7417EB9C0_210224140212_ll.jpg",
+        "https://media.dinomarket.com/docs/imgTD/2024-02/DM_CA96936AC345AC76C2743855B62B8309_210224140242_ll.jpg"
+      ],
+      "description": "Rasakan kecepatan loading secepat kilat dengan SSD berkecepatan sangat tinggi, dan pengalaman lebih mendalam dengan dukungan umpan balik haptik, pemicu adaptif, dan Audio 3D.",
+      "specifications": {
+        "storage": "1TB SSD",
+        "cpu": "x86-64-AMD Ryzen Zen 2, 8 Cores / 16 Threads",
+        "gpu": "AMD Radeon RDNA 2-based graphics engine",
+        "features": "Ultra HD Blu-ray, Ray Tracing, 4K-TV Gaming"
+      },
+      "rating": 4.9,
+      "reviews": 1150,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        14,
+        8,
+        16
+      ]
+    },
+    {
+      "id": 16,
+      "name": "LG C3 55-inch evo 4K Smart TV",
+      "brand": "LG",
+      "category": "Televisions",
+      "price": 16999000,
+      "originalPrice": 20999000,
+      "image": "https://www.lg.com/content/dam/channel/wcms/id/images/tv/oled55c3psa_ati_eain_id_c/2010-01.jpg/_jcr_content/renditions/thum-1600x1062.jpeg",
+      "images": [
+        "https://www.lg.com/content/dam/channel/wcms/id/images/tv/oled55c3psa_ati_eain_id_c/2010-01.jpg/_jcr_content/renditions/thum-1600x1062.jpeg",
+        "https://thumb.viva.id/vivagadget/665x374/2024/07/23/669f57107851d-lg-evo-c3-oled-tv-55-inch-revolusi-hiburan-rumah-dengan-gambar-menakjubkan-dan-suara-menggelegar_.jpg"
+      ],
+      "description": "TV OLED dengan teknologi Brightness Booster untuk gambar yang lebih cerah dan hidup. Ditenagai oleh prosesor α9 AI Gen6 untuk kualitas gambar dan suara superior.",
+      "specifications": {
+        "display": "OLED evo, 4K Ultra HD (3,840 x 2,160)",
+        "processor": "α9 AI Processor 4K Gen6",
+        "refresh_rate": "120Hz Native",
+        "features": "Dolby Vision, Dolby Atmos, NVIDIA G-Sync, AMD FreeSync Premium"
+      },
+      "rating": 4.8,
+      "reviews": 230,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        15,
+        8,
+        5
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Apple AirPods Pro (2nd generation) with USB-C",
+      "brand": "Apple",
+      "category": "Audio",
+      "price": 3599000,
+      "originalPrice": 4299000,
+      "image": "https://www.digimap.co.id/cdn/shop/files/AirPods_Pro_2nd_Gen_with_USB-C_PDP_Image_Position-2__global_8b524a95-f5f0-4b7f-93b0-152e032251b7.jpg?v=1717742680&width=1680",
+      "images": [
+        "https://www.digimap.co.id/cdn/shop/files/AirPods_Pro_2nd_Gen_with_USB-C_PDP_Image_Position-2__global_8b524a95-f5f0-4b7f-93b0-152e032251b7.jpg?v=1717742680&width=1680",
+        "https://www.digimap.co.id/cdn/shop/files/AirPods_Pro_2nd_Gen_with_USB-C_PDP_Image_Position-3__global_143842a5-2dcf-496f-8d6f-dc67ee07394f.jpg?v=1717742681&width=1680"
+      ],
+      "description": "AirPods Pro generasi ke-2 dengan Peredam Kebisingan Aktif yang lebih canggih, mode Transparansi Adaptif, dan Audio Spasial Personal untuk pengalaman mendengarkan yang imersif.",
+      "specifications": {
+        "chip": "Apple H2 chip",
+        "connectivity": "Bluetooth 5.3",
+        "features": "Active Noise Cancellation, Adaptive Transparency, Spatial Audio",
+        "battery": "Up to 6 hours of listening time with a single charge"
+      },
+      "rating": 4.9,
+      "reviews": 1450,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        5,
+        2,
+        6
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Samsung T7 Portable SSD 1TB",
+      "brand": "Samsung",
+      "category": "Accessories",
+      "price": 1350000,
+      "originalPrice": 1899000,
+      "image": "https://media.dinomarket.com/docs/imgTD/2022-11/DM_AE40F06C9FF78741FB11CB5B90105486_251122171142_ll.jpg",
+      "images": [
+        "https://media.dinomarket.com/docs/imgTD/2022-11/DM_AE40F06C9FF78741FB11CB5B90105486_251122171142_ll.jpg",
+        "https://media.dinomarket.com/docs/imgTD/2022-11/DM_AE40FB45B010FC937922106A53D0BF29_251122171145_ll.jpg"
+      ],
+      "description": "SSD eksternal portabel yang ringan dan ringkas dengan kecepatan baca/tulis super cepat hingga 1.050/1.000 MB/s. Dilengkapi keamanan sidik jari dan enkripsi perangkat keras.",
+      "specifications": {
+        "capacity": "1TB",
+        "interface": "USB 3.2 Gen 2 (10Gbps)",
+        "speed": "Read/Write speeds up to 1,050/1,000 MB/s",
+        "security": "AES 256-bit hardware encryption"
+      },
+      "rating": 4.8,
+      "reviews": 880,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Xiaomi Smart Band 9",
+      "brand": "Xiaomi",
+      "category": "Wearables",
+      "price": 549000,
+      "originalPrice": 699000,
+      "image": "https://datascripmall.id/media/webp_image/catalog/product/cache/ac47fa9e49dade1868442d9c19aae1fe/1/5/1543faea-c642-4415-b92f-657bc86a12e5.webp",
+      "images": [
+        "https://datascripmall.id/media/webp_image/catalog/product/cache/ac47fa9e49dade1868442d9c19aae1fe/1/5/1543faea-c642-4415-b92f-657bc86a12e5.webp",
+        "https://datascripmall.id/media/webp_image/catalog/product/cache/ac47fa9e49dade1868442d9c19aae1fe/5/a/5aa7c083-4e5e-422c-adda-70674730243c.webp"
+      ],
+      "description": "Smart band generasi terbaru dengan layar AMOLED lebih besar dan cerah, GPS terintegrasi, lebih dari 150 mode olahraga, dan daya tahan baterai hingga 16 hari.",
+      "specifications": {
+        "display": "1.74-inch AMOLED Display, 60Hz",
+        "battery": "Up to 16 days typical use",
+        "fitness_tracking": "Built-in GPS, 150+ fitness modes, All-day SpO2 monitoring",
+        "water_resistance": "5ATM"
+      },
+      "rating": 4.9,
+      "reviews": 2100,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        12,
+        11,
+        4
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Lenovo Legion 5 Pro (RTX 4060)",
+      "brand": "Lenovo",
+      "category": "Laptops",
+      "price": 24500000,
+      "originalPrice": 26999000,
+      "image": "https://down-id.img.susercontent.com/file/id-11134207-7ras8-m1i87x3xoly6ab.webp",
+      "images": [
+        "https://down-id.img.susercontent.com/file/id-11134207-7ras8-m1i87x3xoly6ab.webp",
+        "https://down-id.img.susercontent.com/file/id-11134207-7ras9-m1i87x3xn7dqae.webp"
+      ],
+      "description": "Laptop gaming berperforma tinggi yang ditenagai prosesor AMD Ryzen 9 dan GPU NVIDIA GeForce RTX 4060. Dilengkapi layar QHD 165Hz untuk visual yang tajam dan mulus.",
+      "specifications": {
+        "processor": "AMD Ryzen 9 7945HX",
+        "ram": "16GB DDR5",
+        "storage": "1TB NVMe SSD",
+        "display": "16-inch QHD (2560x1600) IPS 165Hz"
+      },
+      "rating": 4.8,
+      "reviews": 320,
+      "inStock": true,
+      "featured": false,
+      "recommendations": [
+        9,
+        3,
+        8
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Anker Soundcore R50i True Wireless Earbuds",
+      "brand": "Anker",
+      "category": "Audio",
+      "price": 235000,
+      "originalPrice": 499000,
+      "image": "https://www.ankerindonesia.com/cdn/shop/products/7939a5ed-a1e3-4124-9710-1da9c47b334f-a3949h11-soundcore-r50i-black-1-2.jpg?v=1709833732&width=990",
+      "images": [
+        "https://www.ankerindonesia.com/cdn/shop/products/7939a5ed-a1e3-4124-9710-1da9c47b334f-a3949h11-soundcore-r50i-black-1-2.jpg?v=1709833732&width=990",
+        "https://www.ankerindonesia.com/cdn/shop/products/83b6b405-6892-4062-9676-d79fc814f37f-a3949h11-soundcore-r50i-black-6-1.jpg?v=1709833732&width=990",
+        "https://www.ankerindonesia.com/cdn/shop/products/a060953c-0665-496b-a0a5-ac015019cf89-a3949h11-soundcore-r50i-black-5-1.jpg?v=1709833732&width=990"
+      ],
+      "description": "TWS terjangkau dengan kualitas suara bass yang kuat dari driver 10mm. Dilengkapi 2 mikrofon dengan AI untuk panggilan yang jernih dan daya tahan baterai total 30 jam.",
+      "specifications": {
+        "driver": "10mm Dynamic Driver with BassUp Technology",
+        "battery": "10 Hours, 30 Hours with Charging Case",
+        "connectivity": "Bluetooth 5.3",
+        "features": "AI-Clear Calls, IPX5-Water Resistant"
+      },
+      "rating": 4.8,
+      "reviews": 5500,
+      "inStock": true,
+      "featured": true,
+      "recommendations": [
+        17,
+        5,
+        19
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Laptops",
+      "slug": "laptops",
+      "icon": "/images/laptop.png",
+      "description": "High-performance laptops for work and gaming"
+    },
+    {
+      "id": 2,
+      "name": "Smartphones",
+      "slug": "smartphones",
+      "icon": "/images/smartphones.png",
+      "description": "Latest smartphones with cutting-edge technology"
+    },
+    {
+      "id": 3,
+      "name": "Audio",
+      "slug": "audio",
+      "icon": "/images/audio.png",
+      "description": "Premium headphones and audio equipment"
+    },
+    {
+      "id": 4,
+      "name": "Tablets",
+      "slug": "tablets",
+      "icon": "/images/tablets.png",
+      "description": "Powerful tablets for creativity and productivity"
+    },
+    {
+      "id": 5,
+      "name": "Accessories",
+      "slug": "accessories",
+      "icon": "/images/accessories.png",
+      "description": "Essential accessories for your devices"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "user@test.com",
+      "password": "123456",
+      "firstName": "Test",
+      "lastName": "User",
+      "role": "user",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "admin@test.com",
+      "password": "admin123",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Excellent laptop! The performance is outstanding and the build quality is amazing.",
+      "userName": "John D.",
+      "createdAt": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "userId": 2,
+      "rating": 4,
+      "comment": "Great laptop but a bit expensive. Worth it for professional work.",
+      "userName": "Sarah M.",
+      "createdAt": "2024-01-20T14:22:00.000Z"
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Amazing phone! Camera quality is incredible and battery life is great.",
+      "userName": "Mike R.",
+      "createdAt": "2024-01-18T09:15:00.000Z"
+    },
+    {
+      "id": 4,
+      "productId": 5,
+      "userId": 2,
+      "rating": 5,
+      "comment": "Best noise-canceling headphones I've ever used. Sound quality is superb!",
+      "userName": "Emma L.",
+      "createdAt": "2024-01-22T16:45:00.000Z"
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "id": 1751477242355,
+      "userId": 2,
+      "items": [
+        {
+          "id": 3,
+          "name": "Dell XPS 13",
+          "price": 60000000,
+          "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+          "brand": "Dell",
+          "quantity": 4
+        }
+      ],
+      "total": 240000000,
+      "status": "pending",
+      "shippingAddress": {
+        "firstName": "qqq",
+        "lastName": "qq",
+        "email": "admin@test.com",
+        "phone": "31313fwf",
+        "address": "sfsf",
+        "city": "fsf",
+        "state": "fs",
+        "zipCode": "fs"
+      },
+      "paymentMethod": "credit_card",
+      "createdAt": "2025-07-02T17:27:22.355Z",
+      "estimatedDelivery": "2025-07-09T17:27:22.356Z"
+    },
+    {
+      "id": 1751546481694,
+      "userId": 1,
+      "items": [
+        {
+          "id": 4,
+          "name": "Samsung Galaxy S24 Ultra ",
+          "price": 1199,
+          "image": "https://images.pexels.com/photos/1647976/pexels-photo-1647976.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "brand": "Samsung",
+          "quantity": 1
+        }
+      ],
+      "total": 1199,
+      "status": "pending",
+      "shippingAddress": {
+        "firstName": "",
+        "lastName": "",
+        "email": "user@test.com",
+        "phone": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "zipCode": ""
+      },
+      "paymentMethod": "credit_card",
+      "createdAt": "2025-07-03T12:41:21.694Z",
+      "estimatedDelivery": "2025-07-10T12:41:21.694Z"
+    }
+  ],
+  "favorites": [
+    {
+      "id": 1751476776814,
+      "productId": 3,
+      "userId": 2,
+      "product": {
+        "id": 3,
+        "name": "Dell XPS 13",
+        "price": 60000000,
+        "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+        "brand": "Dell"
+      },
+      "createdAt": "2025-07-02T17:19:36.814Z"
+    }
+  ]
+}
