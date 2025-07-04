@@ -4,11 +4,13 @@ import { db, ref, get, push, set, update, remove } from '../firebase'
 export const useProductsStore = defineStore('products', {
   state: () => ({
     products: [],
+    categories: [], // ✅ Tambahkan state categories
     loading: false,
     error: null
   }),
 
   actions: {
+    // ✅ Fetch semua produk
     async fetchProducts() {
       this.loading = true
       this.error = null
@@ -24,12 +26,13 @@ export const useProductsStore = defineStore('products', {
       }
     },
 
+    // ✅ Tambahkan produk
     async addProduct(productData) {
       this.loading = true
       try {
         const newRef = push(ref(db, 'products'))
         await set(newRef, productData)
-        this.fetchProducts()
+        await this.fetchProducts()
       } catch (e) {
         this.error = e.message
       } finally {
@@ -37,14 +40,37 @@ export const useProductsStore = defineStore('products', {
       }
     },
 
+    // ✅ Update produk
     async updateProduct(id, productData) {
       await update(ref(db, 'products/' + id), productData)
-      this.fetchProducts()
+      await this.fetchProducts()
     },
 
+    // ✅ Hapus produk
     async deleteProduct(id) {
       await remove(ref(db, 'products/' + id))
-      this.fetchProducts()
+      await this.fetchProducts()
+    },
+
+    // ✅ Fetch kategori
+    async fetchCategories() {
+      this.loading = true
+      this.error = null
+      try {
+        const snapshot = await get(ref(db, 'categories'))
+        if (snapshot.exists()) {
+          this.categories = Object.entries(snapshot.val()).map(([id, val]) => ({ id, ...val }))
+        }
+      } catch (e) {
+        this.error = e.message
+      } finally {
+        this.loading = false
+      }
+    },
+
+    // ✅ Opsional: set selected category (kalau dipakai)
+    setSelectedCategory(categoryName) {
+      this.selectedCategory = categoryName
     }
   }
 })

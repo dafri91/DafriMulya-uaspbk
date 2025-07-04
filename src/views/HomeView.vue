@@ -10,7 +10,7 @@ const productsStore = useProductsStore()
 
 onMounted(async () => {
   await productsStore.fetchProducts()
-  await productsStore.fetchCategories()
+  // await productsStore.fetchCategories()
 })
 
 const handleShopNow = () => {
