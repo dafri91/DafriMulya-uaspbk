@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { db, ref, get, push, set, remove, onValue } from '../firebase'
+import { db, ref, get, push, set, remove } from '../firebase'
 import { useAuthStore } from './auth'
 
 export const useFavoritesStore = defineStore('favorites', {
@@ -73,7 +73,6 @@ export const useFavoritesStore = defineStore('favorites', {
       this.error = null
 
       try {
-        // Cari id di daftar favorites
         const snapshot = await get(ref(db, `favorites/${authStore.user.uid}`))
         if (snapshot.exists()) {
           const entries = Object.entries(snapshot.val())
@@ -96,6 +95,11 @@ export const useFavoritesStore = defineStore('favorites', {
       } else {
         await this.addToFavorites(product)
       }
+    },
+
+    loadFromLocalStorage() {
+      // This store loads from Firebase, so nothing to do
+      console.log('loadFromLocalStorage() in favoritesStore is a no-op (Firebase-based).')
     }
   }
 })
