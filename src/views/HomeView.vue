@@ -39,7 +39,8 @@ const handleCategoryClick = (category) => {
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          <div v-for="category in productsStore.categories" :key="category.id" @click="handleCategoryClick(category)"
+          <div v-for="category in productsStore.categories.filter(c => c.name !== 'All Categories')" :key="category.id"
+            @click="handleCategoryClick(category)"
             class="bg-white rounded-xl p-6 text-center cursor-pointer transform hover:-translate-y-1 transition-all duration-300 hover:shadow-lg group border border-transparent hover:border-primary">
             <img :src="category.icon" :alt="category.name"
               class="w-16 h-16 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />

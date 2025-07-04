@@ -1,3 +1,4 @@
+// src/store/favorites.js
 import { defineStore } from 'pinia'
 import { db, ref, get, push, set, remove } from '../firebase'
 import { useAuthStore } from './auth'
@@ -50,10 +51,7 @@ export const useFavoritesStore = defineStore('favorites', {
         const newRef = push(ref(db, `favorites/${authStore.user.uid}`))
         const favoriteItem = {
           productId: product.id,
-          name: product.name,
-          price: product.price,
-          image: product.image,
-          brand: product.brand,
+          product, // ⬅️ Simpan seluruh produk
           createdAt: new Date().toISOString()
         }
         await set(newRef, favoriteItem)
@@ -98,8 +96,7 @@ export const useFavoritesStore = defineStore('favorites', {
     },
 
     loadFromLocalStorage() {
-      // This store loads from Firebase, so nothing to do
-      console.log('loadFromLocalStorage() in favoritesStore is a no-op (Firebase-based).')
+      console.log('Favorites are stored in Firebase, no local storage needed.')
     }
   }
 })

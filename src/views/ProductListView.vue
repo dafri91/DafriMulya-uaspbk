@@ -2,6 +2,7 @@
 import { onMounted, computed, ref, watch, onUnmounted } from 'vue'
 import { useProductsStore } from '../store/products'
 import ProductCard from '../components/ProductCard.vue'
+import FilterSidebar from '../components/FilterSidebar.vue'
 
 const productsStore = useProductsStore()
 const showMobileFilters = ref(false)
@@ -135,10 +136,6 @@ onUnmounted(() => {
 
   </div>
 </template>
-
-<script>
-import FilterSidebar from '../components/FilterSidebar.vue'
-</script>
 
 <style>
 .fade-enter-active, .fade-leave-active {

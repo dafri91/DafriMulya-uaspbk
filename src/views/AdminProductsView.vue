@@ -57,8 +57,10 @@ const saveProduct = async () => {
     result = await productsStore.addProduct(productData)
   }
 
-  if (result.success) {
+  if (result?.success) {
     closeModal()
+  } else {
+    alert('Failed to save product: ' + (result?.error || 'Unknown error'))
   }
 }
 

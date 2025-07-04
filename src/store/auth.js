@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
 import { auth, db, ref, set, get } from '../firebase'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from 'firebase/auth'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -15,25 +19,31 @@ export const useAuthStore = defineStore('auth', {
   },
 
   actions: {
-    async register(email, password, name) {
+    async register({ firstName, lastName, email, password }) {
       this.loading = true
       this.error = null
       try {
         const cred = await createUserWithEmailAndPassword(auth, email, password)
         const uid = cred.user.uid
 
-        await set(ref(db, 'users/' + uid), {
+        const userData = {
           uid,
           email,
-          name,
+          firstName,
+          lastName,
           role: 'user',
           createdAt: new Date().toISOString()
-        })
+        }
 
-        this.user = { uid, email, name, role: 'user' }
-        localStorage.setItem('user', JSON.stringify(this.user))
+        await set(ref(db, 'users/' + uid), userData)
+
+        this.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
+
+        return { success: true }
       } catch (e) {
         this.error = e.message
+        return { success: false, error: e.message }
       } finally {
         this.loading = false
       }
@@ -50,11 +60,14 @@ export const useAuthStore = defineStore('auth', {
         if (snapshot.exists()) {
           this.user = snapshot.val()
           localStorage.setItem('user', JSON.stringify(this.user))
+          return { success: true }
         } else {
           this.error = 'User data not found in database.'
+          return { success: false, error: this.error }
         }
       } catch (e) {
         this.error = e.message
+        return { success: false, error: e.message }
       } finally {
         this.loading = false
       }
@@ -69,6 +82,26 @@ export const useAuthStore = defineStore('auth', {
     loadFromLocal() {
       const u = localStorage.getItem('user')
       this.user = u ? JSON.parse(u) : null
+    },
+
+    //  Tambahan: Fungsi update profil user
+    async updateUser(updatedData) {
+      if (!this.user || !this.user.uid) return false
+
+      try {
+        const newUser = {
+          ...this.user,
+          ...updatedData
+        }
+
+        await set(ref(db, 'users/' + this.user.uid), newUser)
+        this.user = newUser
+        localStorage.setItem('user', JSON.stringify(this.user))
+        return true
+      } catch (e) {
+        console.error('Failed to update user:', e)
+        return false
+      }
     }
   }
 })

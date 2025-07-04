@@ -42,7 +42,7 @@ const handleRegister = async () => {
     email: form.value.email,
     password: form.value.password
   })
-  
+
   if (result.success) {
     router.push('/')
   } else {
@@ -75,28 +75,18 @@ const handleRegister = async () => {
               <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
                 First Name
               </label>
-              <input
-                id="firstName"
-                v-model="form.firstName"
-                type="text"
-                required
+              <input id="firstName" v-model="form.firstName" type="text" required
                 class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-                placeholder="First name"
-              >
+                placeholder="First name">
             </div>
-            
+
             <div>
               <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
                 Last Name
               </label>
-              <input
-                id="lastName"
-                v-model="form.lastName"
-                type="text"
-                required
+              <input id="lastName" v-model="form.lastName" type="text" required
                 class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-                placeholder="Last name"
-              >
+                placeholder="Last name">
             </div>
           </div>
 
@@ -104,42 +94,27 @@ const handleRegister = async () => {
             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
               Email address
             </label>
-            <input
-              id="email"
-              v-model="form.email"
-              type="email"
-              required
+            <input id="email" v-model="form.email" type="email" required
               class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-              placeholder="Enter your email"
-            >
+              placeholder="Enter your email">
           </div>
-          
+
           <div>
             <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
-            <input
-              id="password"
-              v-model="form.password"
-              type="password"
-              required
+            <input id="password" v-model="form.password" type="password" required
               class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-              placeholder="Enter your password"
-            >
+              placeholder="Enter your password">
           </div>
 
           <div>
             <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
               Confirm Password
             </label>
-            <input
-              id="confirmPassword"
-              v-model="form.confirmPassword"
-              type="password"
-              required
+            <input id="confirmPassword" v-model="form.confirmPassword" type="password" required
               class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-              placeholder="Confirm your password"
-            >
+              placeholder="Confirm your password">
           </div>
         </div>
 
@@ -148,11 +123,8 @@ const handleRegister = async () => {
         </div>
 
         <div>
-          <button
-            type="submit"
-            :disabled="loading"
-            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition duration-150"
-          >
+          <button type="submit" :disabled="loading"
+            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">
             <span v-if="loading">Creating account...</span>
             <span v-else>Create account</span>
           </button>

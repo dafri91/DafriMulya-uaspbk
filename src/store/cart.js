@@ -1,43 +1,59 @@
+// store/cart.js
 import { defineStore } from 'pinia'
+import { db, ref, get, set } from '../firebase'
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    items: JSON.parse(localStorage.getItem('cart') || '[]')
+    userId: null,
+    items: []
   }),
 
   getters: {
     itemCount: (state) => state.items.reduce((sum, item) => sum + item.quantity, 0),
-    totalPrice: (state) => state.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+    totalPrice: (state) => state.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    isEmpty: (state) => state.items.length === 0
   },
 
   actions: {
-    addToCart(product, quantity = 1) {
+    async initCart(uid) {
+      if (!uid) return
+      this.userId = uid
+      const cartRef = ref(db, `carts/${uid}`)
+      const snapshot = await get(cartRef)
+      this.items = snapshot.exists() ? snapshot.val() : []
+    },
+
+    async saveCart() {
+      if (!this.userId) return
+      await set(ref(db, `carts/${this.userId}`), this.items)
+    },
+
+    async addToCart(product, quantity = 1) {
       const existing = this.items.find(item => item.id === product.id)
       if (existing) {
         existing.quantity += quantity
       } else {
         this.items.push({ ...product, quantity })
       }
-      this.save()
+      await this.saveCart()
     },
 
-    removeFromCart(id) {
-      this.items = this.items.filter(item => item.id !== id)
-      this.save()
+    async updateQuantity(productId, qty) {
+      const item = this.items.find(item => item.id === productId)
+      if (item) {
+        item.quantity = qty
+        await this.saveCart()
+      }
     },
 
-    clearCart() {
+    async removeFromCart(productId) {
+      this.items = this.items.filter(item => item.id !== productId)
+      await this.saveCart()
+    },
+
+    async clearCart() {
       this.items = []
-      this.save()
-    },
-
-    save() {
-      localStorage.setItem('cart', JSON.stringify(this.items))
-    },
-
-    loadFromLocalStorage() {
-      const data = localStorage.getItem('cart')
-      this.items = data ? JSON.parse(data) : []
+      await this.saveCart()
     }
   }
 })

@@ -38,8 +38,8 @@ const handleLogin = async () => {
 }
 
 const fillTestAccount = () => {
-  form.value.email = 'admin@test.com'
-  form.value.password = 'admin123'
+  form.value.email = 'admin@gmail.com'
+  form.value.password = 'admin@123'
 }
 </script>
 
@@ -59,8 +59,8 @@ const fillTestAccount = () => {
       <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
         <h3 class="text-sm font-medium text-orange-900 mb-2">Test Admin Credentials:</h3>
         <div class="text-sm text-orange-700 space-y-1">
-          <p><strong>Email:</strong> admin@test.com</p>
-          <p><strong>Password:</strong> admin123</p>
+          <p><strong>Email:</strong> admin@gmail.com</p>
+          <p><strong>Password:</strong> admin@123</p>
         </div>
         <button
           @click="fillTestAccount"

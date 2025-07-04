@@ -2,7 +2,6 @@
 const props = defineProps(["productsStore"]);
 const emit = defineEmits(["clear"]);
 
-// Definisikan opsi urutan di sini
 const sortOptions = [
   { value: "default", label: "Default" },
   { value: "priceLow", label: "Price: Low to High" },
@@ -23,33 +22,37 @@ const sortOptions = [
     </div>
 
     <!-- Category Filter -->
-    <div class="mb-6">
-      <h4 class="font-medium text-gray-900 mb-3">Category</h4>
-      <div class="space-y-2">
-        <label class="flex items-center">
-          <input
-            type="radio"
-            :checked="props.productsStore.selectedCategory === ''"
-            @change="props.productsStore.setSelectedCategory('')"
-            class="form-radio h-4 w-4 text-primary"
-          />
-          <span class="ml-2 text-gray-700">All Categories</span>
-        </label>
-        <label
-          v-for="category in props.productsStore.categories"
-          :key="category.id"
-          class="flex items-center"
-        >
-          <input
-            type="radio"
-            :checked="props.productsStore.selectedCategory === category.name"
-            @change="props.productsStore.setSelectedCategory(category.name)"
-            class="form-radio h-4 w-4 text-primary"
-          />
-          <span class="ml-2 text-gray-700">{{ category.name }}</span>
-        </label>
-      </div>
-    </div>
+<div class="mb-6">
+  <h4 class="font-medium text-gray-900 mb-3">Category</h4>
+  <div class="space-y-2">
+    <!-- All Categories -->
+    <label class="flex items-center">
+      <input
+        type="radio"
+        :checked="!props.productsStore.selectedCategory"
+        @change="props.productsStore.setSelectedCategory(null)"
+        class="form-radio h-4 w-4 text-primary"
+      />
+      <span class="ml-2 text-gray-700">All Categories</span>
+    </label>
+
+    <!-- Real Categories -->
+    <label
+      v-for="category in props.productsStore.categories.filter(c => c.name !== 'All Categories')"
+      :key="category.id"
+      class="flex items-center"
+    >
+      <input
+        type="radio"
+        :checked="props.productsStore.selectedCategory === category.name"
+        @change="props.productsStore.setSelectedCategory(category.name)"
+        class="form-radio h-4 w-4 text-primary"
+      />
+      <span class="ml-2 text-gray-700">{{ category.name }}</span>
+    </label>
+  </div>
+</div>
+
 
     <!-- Brand Filter -->
     <div class="mb-6">
@@ -79,26 +82,6 @@ const sortOptions = [
         </label>
       </div>
     </div>
-
-    <!-- Price Range -->
-    <!-- <div class="mb-6">
-      <h4 class="font-medium text-gray-900 mb-3">Price Range</h4>
-      <div class="space-y-3">
-        <div class="flex items-center justify-between text-sm text-gray-600">
-          <span>Rp {{ props.productsStore.priceRange[0].toLocaleString('id-ID') }}</span>
-          <span>Rp {{ props.productsStore.priceRange[1].toLocaleString('id-ID') }}</span>
-        </div>
-        <input
-          type="range"
-          min="0"
-          max="100000000"
-          step="500000"
-          :value="props.productsStore.priceRange[1]"
-          @input="props.productsStore.setPriceRange([0, parseInt($event.target.value)])"
-          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-        />
-      </div>
-    </div> -->
 
     <!-- Sort By -->
     <div class="mb-6">

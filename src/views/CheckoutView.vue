@@ -59,13 +59,18 @@ const submitOrder = async () => {
       state: orderForm.value.state,
       zipCode: orderForm.value.zipCode
     },
-    paymentMethod: orderForm.value.paymentMethod
+    paymentMethod: orderForm.value.paymentMethod,
+    items: cartStore.items, //  Tambahkan ini
+    total: finalTotal.value  //  Tambahkan ini
   }
 
   try {
     const result = await ordersStore.createOrder(orderData)
     if (result.success) {
+      cartStore.clearCart() //  opsional, bersihkan cart setelah order
       router.push('/orders')
+    } else {
+      console.error('Order failed:', result.error)
     }
   } catch (error) {
     console.error('Order failed:', error)
@@ -73,6 +78,7 @@ const submitOrder = async () => {
     loading.value = false
   }
 }
+
 </script>
 
 <template>
