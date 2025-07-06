@@ -1,17 +1,40 @@
 <script setup>
-import { onMounted } from 'vue'
-import { useAuthStore } from './store/auth'
-import { useFavoritesStore } from './store/favorites'
-import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
+import { onMounted, watch } from "vue";
+import { useAuthStore } from "./store/auth";
+import { useCartStore } from "./store/cart";
+import { useFavoritesStore } from "./store/favorites";
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 
-const authStore = useAuthStore()
-const favoritesStore = useFavoritesStore()
+const authStore = useAuthStore();
+const cartStore = useCartStore();
+const favoritesStore = useFavoritesStore();
 
-onMounted(() => {
-  // Load favorites from localStorage on app start
-  favoritesStore.loadFromLocalStorage()
-})
+onMounted(async () => {
+  authStore.loadFromLocal();
+
+  favoritesStore.loadFromLocalStorage();
+
+  if (authStore.isAuthenticated && !authStore.isAdmin) {
+    await favoritesStore.fetchFavorites();
+    await cartStore.fetchCart();
+  }
+});
+
+//  Watch login/logout
+watch(
+  () => authStore.isAuthenticated,
+  async (isLoggedIn) => {
+    if (isLoggedIn && !authStore.isAdmin) {
+      await favoritesStore.fetchFavorites();
+      await cartStore.fetchCart();
+    } else {
+      favoritesStore.clearFavorites();
+      cartStore.clearLocalCart();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -25,10 +48,10 @@ onMounted(() => {
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .form-radio {
@@ -47,7 +70,7 @@ body {
 }
 
 .form-radio:checked::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,7 +97,7 @@ body {
 }
 
 .form-checkbox:checked::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.125rem;
   left: 0.25rem;

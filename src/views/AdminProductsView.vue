@@ -87,10 +87,8 @@ onMounted(async () => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="flex items-center justify-between mb-8">
       <h1 class="text-3xl font-bold text-gray-900">Manage Products</h1>
-      <button
-        @click="openModal()"
-        class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition duration-150"
-      >
+      <button @click="openModal()"
+        class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition duration-150">
         Add Product
       </button>
     </div>
@@ -117,11 +115,7 @@ onMounted(async () => {
             <tr v-for="product in productsStore.products" :key="product.id">
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
-                  <img
-                    :src="product.image"
-                    :alt="product.name"
-                    class="w-12 h-12 rounded-lg object-cover mr-4"
-                  >
+                  <img :src="product.image" :alt="product.name" class="w-12 h-12 rounded-lg object-cover mr-4">
                   <div>
                     <div class="text-sm font-medium text-gray-900">{{ product.name }}</div>
                     <div class="text-sm text-gray-500">{{ product.brand }}</div>
@@ -143,16 +137,10 @@ onMounted(async () => {
                 </span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                <button
-                  @click="openModal(product)"
-                  class="text-primary hover:text-primary/80"
-                >
+                <button @click="openModal(product)" class="text-primary hover:text-primary/80">
                   Edit
                 </button>
-                <button
-                  @click="deleteProduct(product.id)"
-                  class="text-red-600 hover:text-red-800"
-                >
+                <button @click="deleteProduct(product.id)" class="text-red-600 hover:text-red-800">
                   Delete
                 </button>
               </td>
@@ -180,32 +168,21 @@ onMounted(async () => {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Product Name</label>
-              <input
-                v-model="form.name"
-                type="text"
-                required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <input v-model="form.name" type="text" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Brand</label>
-              <input
-                v-model="form.brand"
-                type="text"
-                required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <input v-model="form.brand" type="text" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
-              <select
-                v-model="form.category"
-                required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <select v-model="form.category" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                 <option value="">Select Category</option>
                 <option v-for="category in categories" :key="category" :value="category">
                   {{ category }}
@@ -214,11 +191,7 @@ onMounted(async () => {
             </div>
             <div>
               <label class="flex items-center">
-                <input
-                  v-model="form.inStock"
-                  type="checkbox"
-                  class="form-checkbox h-4 w-4 text-primary"
-                >
+                <input v-model="form.inStock" type="checkbox" class="form-checkbox h-4 w-4 text-primary">
                 <span class="ml-2 text-sm font-medium text-gray-700">In Stock</span>
               </label>
             </div>
@@ -227,57 +200,35 @@ onMounted(async () => {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Price</label>
-              <input
-                v-model="form.price"
-                type="number"
-                step="0.01"
-                required
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <input v-model="form.price" type="number" step="0.01" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Original Price (Optional)</label>
-              <input
-                v-model="form.originalPrice"
-                type="number"
-                step="0.01"
-                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <input v-model="form.originalPrice" type="number" step="0.01"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
-            <input
-              v-model="form.image"
-              type="url"
-              required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            >
+            <input v-model="form.image" type="url" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
-            <textarea
-              v-model="form.description"
-              rows="3"
-              required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            ></textarea>
+            <textarea v-model="form.description" rows="3" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
           </div>
 
           <div class="flex justify-end space-x-4 pt-4">
-            <button
-              type="button"
-              @click="closeModal"
-              class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-150"
-            >
+            <button type="button" @click="closeModal"
+              class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-150">
               Cancel
             </button>
-            <button
-              type="submit"
-              class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-150"
-            >
+            <button type="submit"
+              class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-150">
               {{ editingProduct ? 'Update' : 'Add' }} Product
             </button>
           </div>

@@ -15,7 +15,7 @@ onMounted(async () => {
     router.push('/login')
     return
   }
-  
+
   await ordersStore.fetchOrders()
 })
 
@@ -61,10 +61,8 @@ const getStatusColor = (status) => {
     <div v-if="!authStore.isAuthenticated" class="text-center py-12">
       <h2 class="text-2xl font-semibold text-gray-900 mb-2">Login Required</h2>
       <p class="text-gray-600 mb-8">Please login to view your orders</p>
-      <router-link
-        to="/login"
-        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150"
-      >
+      <router-link to="/login"
+        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150">
         Login
       </router-link>
     </div>
@@ -77,25 +75,20 @@ const getStatusColor = (status) => {
     <!-- No Orders -->
     <div v-else-if="userOrders.length === 0" class="text-center py-12">
       <svg class="mx-auto h-24 w-24 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       </svg>
       <h2 class="text-2xl font-semibold text-gray-900 mb-2">No orders yet</h2>
       <p class="text-gray-600 mb-8">Start shopping to see your orders here</p>
-      <router-link
-        to="/products"
-        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150"
-      >
+      <router-link to="/products"
+        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150">
         Browse Products
       </router-link>
     </div>
 
     <!-- Orders List -->
     <div v-else class="space-y-6">
-      <div
-        v-for="order in userOrders"
-        :key="order.id"
-        class="bg-white border rounded-lg p-6 shadow-sm"
-      >
+      <div v-for="order in userOrders" :key="order.id" class="bg-white border rounded-lg p-6 shadow-sm">
         <!-- Order Header -->
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
           <div>
@@ -112,16 +105,8 @@ const getStatusColor = (status) => {
 
         <!-- Order Items -->
         <div class="space-y-4 mb-6">
-          <div
-            v-for="item in order.items"
-            :key="item.id"
-            class="flex items-center space-x-4"
-          >
-            <img
-              :src="item.image"
-              :alt="item.name"
-              class="w-16 h-16 object-cover rounded-lg"
-            >
+          <div v-for="item in order.items" :key="item.id" class="flex items-center space-x-4">
+            <img :src="item.image" :alt="item.name" class="w-16 h-16 object-cover rounded-lg">
             <div class="flex-1">
               <h4 class="font-medium text-gray-900">{{ item.name }}</h4>
               <p class="text-sm text-gray-600">{{ item.brand }}</p>
@@ -140,7 +125,8 @@ const getStatusColor = (status) => {
               <div class="text-sm text-gray-600">
                 <p>{{ order.shippingAddress.firstName }} {{ order.shippingAddress.lastName }}</p>
                 <p>{{ order.shippingAddress.address }}</p>
-                <p>{{ order.shippingAddress.city }}, {{ order.shippingAddress.state }} {{ order.shippingAddress.zipCode }}</p>
+                <p>{{ order.shippingAddress.city }}, {{ order.shippingAddress.state }} {{ order.shippingAddress.zipCode
+                  }}</p>
               </div>
             </div>
 

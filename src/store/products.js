@@ -5,18 +5,59 @@ import { db, ref, get, push, set, update, remove } from "../firebase";
 // 🔧 Sinonim berdasarkan kategori
 const categorySynonyms = {
   Laptops: ["laptop", "notebook", "macbook", "asus", "dell", "lenovo", "acer"],
-  Smartphones: ["hp", "handphone", "smartphone", "ponsel", "xiaomi", "samsung", "android"],
-  Audio: ["headset", "earphone", "headphone", "buds", "audio", "sony", "anker", "logitech"],
-  Accessories: ["charger", "usb", "mouse", "keyboard", "cable", "accessory", "logitech", "anker"],
-  "Gaming Consoles": ["console", "game", "ps", "nintendo", "playstation", "switch"],
-  Wearables: ["jam", "smartwatch", "gelang", "wearable", "watch", "band", "xiaomi"],
+  Smartphones: [
+    "hp",
+    "handphone",
+    "smartphone",
+    "ponsel",
+    "xiaomi",
+    "samsung",
+    "android",
+  ],
+  Audio: [
+    "headset",
+    "earphone",
+    "headphone",
+    "buds",
+    "audio",
+    "sony",
+    "anker",
+    "logitech",
+  ],
+  Accessories: [
+    "charger",
+    "usb",
+    "mouse",
+    "keyboard",
+    "cable",
+    "accessory",
+    "logitech",
+    "anker",
+  ],
+  "Gaming Consoles": [
+    "console",
+    "game",
+    "ps",
+    "nintendo",
+    "playstation",
+    "switch",
+  ],
+  Wearables: [
+    "jam",
+    "smartwatch",
+    "gelang",
+    "wearable",
+    "watch",
+    "band",
+    "xiaomi",
+  ],
   Tablets: ["tablet", "ipad"],
   Monitors: ["monitor", "display", "layar"],
   Televisions: ["tv", "televisi", "oled", "smart tv", "lg", "samsung"],
   "Gaming Peripherals": ["mouse", "keyboard", "keychron", "razer", "gaming"],
 };
 
-// 🧠 Pencarian relevan berdasarkan sinonim + kategori
+//  Pencarian relevan berdasarkan sinonim + kategori
 function doesProductMatchSearch(product, query) {
   const lowerQuery = query.toLowerCase().trim();
   const name = product.name?.toLowerCase() || "";
@@ -25,14 +66,18 @@ function doesProductMatchSearch(product, query) {
   const category = product.category;
 
   // Cocok langsung
-  if (name.includes(lowerQuery) || brand.includes(lowerQuery) || desc.includes(lowerQuery)) {
+  if (
+    name.includes(lowerQuery) ||
+    brand.includes(lowerQuery) ||
+    desc.includes(lowerQuery)
+  ) {
     return true;
   }
 
   // Cek sinonim dari kategori produk
   const synonyms = categorySynonyms[category] || [];
-  return synonyms.some((syn) =>
-    lowerQuery.includes(syn) || syn.includes(lowerQuery)
+  return synonyms.some(
+    (syn) => lowerQuery.includes(syn) || syn.includes(lowerQuery)
   );
 }
 
@@ -57,7 +102,10 @@ export const useProductsStore = defineStore("products", {
       let result = state.products;
 
       // Filter kategori
-      if (state.selectedCategory && state.selectedCategory !== "All Categories") {
+      if (
+        state.selectedCategory &&
+        state.selectedCategory !== "All Categories"
+      ) {
         result = result.filter((p) => p.category === state.selectedCategory);
       }
 
@@ -68,7 +116,9 @@ export const useProductsStore = defineStore("products", {
 
       // Filter pencarian menggunakan sinonim kategori
       if (state.searchQuery.trim() !== "") {
-        result = result.filter((p) => doesProductMatchSearch(p, state.searchQuery));
+        result = result.filter((p) =>
+          doesProductMatchSearch(p, state.searchQuery)
+        );
       }
 
       return result;
@@ -94,14 +144,17 @@ export const useProductsStore = defineStore("products", {
     },
   },
 
- actions: {
+  actions: {
     async fetchProducts() {
       this.loading = true;
       this.error = null;
       try {
         const snapshot = await get(ref(db, "products"));
         if (snapshot.exists()) {
-          this.products = Object.entries(snapshot.val()).map(([id, val]) => ({ id, ...val }));
+          this.products = Object.entries(snapshot.val()).map(([id, val]) => ({
+            id,
+            ...val,
+          }));
         } else {
           this.products = [];
         }
@@ -119,8 +172,13 @@ export const useProductsStore = defineStore("products", {
       try {
         const snapshot = await get(ref(db, "categories"));
         if (snapshot.exists()) {
-          const data = Object.entries(snapshot.val()).map(([id, val]) => ({ id, ...val }));
-          const clean = data.filter((c) => c.name?.toLowerCase().trim() !== "all categories");
+          const data = Object.entries(snapshot.val()).map(([id, val]) => ({
+            id,
+            ...val,
+          }));
+          const clean = data.filter(
+            (c) => c.name?.toLowerCase().trim() !== "all categories"
+          );
           this.categories = [{ id: "__all", name: "All Categories" }, ...clean];
         } else {
           this.categories = [{ id: "__all", name: "All Categories" }];
@@ -141,7 +199,9 @@ export const useProductsStore = defineStore("products", {
           this.currentProduct = localProduct;
         } else {
           const snapshot = await get(ref(db, `products/${id}`));
-          this.currentProduct = snapshot.exists() ? { id, ...snapshot.val() } : null;
+          this.currentProduct = snapshot.exists()
+            ? { id, ...snapshot.val() }
+            : null;
         }
       } catch (e) {
         this.error = e.message;
@@ -156,7 +216,7 @@ export const useProductsStore = defineStore("products", {
         const newRef = push(ref(db, "products"));
         await set(newRef, {
           ...productData,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
         });
         await this.fetchProducts();
         return { success: true };
@@ -172,7 +232,7 @@ export const useProductsStore = defineStore("products", {
       try {
         await update(ref(db, `products/${id}`), {
           ...productData,
-          updatedAt: new Date().toISOString()
+          updatedAt: new Date().toISOString(),
         });
         await this.fetchProducts();
         return { success: true };

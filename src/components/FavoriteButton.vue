@@ -1,43 +1,49 @@
 <!-- components/FavoriteButton.vue -->
 <script setup>
-import { computed } from 'vue'
-import { useFavoritesStore } from '../store/favorites'
-import { useAuthStore } from '../store/auth'
+import { computed } from "vue";
+import { useFavoritesStore } from "../store/favorites";
+import { useAuthStore } from "../store/auth";
 
 const props = defineProps({
   product: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const favoritesStore = useFavoritesStore()
-const authStore = useAuthStore()
+const favoritesStore = useFavoritesStore();
+const authStore = useAuthStore();
 
 // Cek apakah produk ini sudah ada di daftar favorit
-const isFavorited = computed(() => favoritesStore.isFavorite(props.product.id))
+const isFavorited = computed(() => favoritesStore.isFavorite(props.product.id));
 
 // Toggle favorite (tambahkan/hapus)
 const toggleFavorite = async (event) => {
-  event.stopPropagation()
+  event.stopPropagation();
 
   if (!authStore.isAuthenticated) {
-    alert('Please login to manage favorites.')
-    return
+    alert("Please login to manage favorites.");
+    return;
   }
 
-  await favoritesStore.toggleFavorite(props.product)
-}
+  if (authStore.isAdmin) {
+    alert("Admin tidak bisa menambahkan ke favorit.");
+    return;
+  }
+
+  await favoritesStore.toggleFavorite(props.product);
+};
 </script>
 
 <template>
   <button
+    v-if="!authStore.isAdmin"
     @click="toggleFavorite"
     :class="[
       'p-2 rounded-full transition-all duration-200 transform hover:scale-110',
       isFavorited
         ? 'bg-red-500 text-white shadow-lg'
-        : 'bg-white/80 text-gray-600 hover:bg-white hover:text-red-500 backdrop-blur-sm'
+        : 'bg-white/80 text-gray-600 hover:bg-white hover:text-red-500 backdrop-blur-sm',
     ]"
     :title="isFavorited ? 'Remove from favorites' : 'Add to favorites'"
   >

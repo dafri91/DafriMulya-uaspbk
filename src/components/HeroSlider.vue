@@ -141,52 +141,29 @@ const handleShopNow = () => {
 </script>
 
 <template>
-  <div
-    ref="sliderContainerRef"
-    class="relative h-[70vh] md:h-[85vh] overflow-hidden w-full"
-  >
-    <div
-      :style="sliderStyle"
-      class="flex h-full w-full"
-      @mousedown.prevent="dragStart(currentSlide)($event)"
-      @touchstart.prevent="dragStart(currentSlide)($event)"
-      @mousemove.prevent="dragging"
-      @touchmove.prevent="dragging"
-      @mouseup="dragEnd"
-      @mouseleave="dragEnd"
-      @touchend="dragEnd"
-    >
-      <div
-        v-for="(slide, index) in slides"
-        :key="slide.id"
-        class="relative h-full w-full flex-shrink-0 cursor-grab active:cursor-grabbing"
-      >
-        <div
-          :style="{ backgroundImage: 'url(' + slide.image + ')' }"
-          class="w-full h-full bg-cover bg-center"
-        >
+  <div ref="sliderContainerRef" class="relative h-[70vh] md:h-[85vh] overflow-hidden w-full">
+    <div :style="sliderStyle" class="flex h-full w-full" @mousedown.prevent="dragStart(currentSlide)($event)"
+      @touchstart.prevent="dragStart(currentSlide)($event)" @mousemove.prevent="dragging" @touchmove.prevent="dragging"
+      @mouseup="dragEnd" @mouseleave="dragEnd" @touchend="dragEnd">
+      <div v-for="(slide, index) in slides" :key="slide.id"
+        class="relative h-full w-full flex-shrink-0 cursor-grab active:cursor-grabbing">
+        <div :style="{ backgroundImage: 'url(' + slide.image + ')' }" class="w-full h-full bg-cover bg-center">
           <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
         </div>
 
-        <div
-          class="absolute inset-0 flex items-center justify-center text-center pointer-events-none"
-        >
+        <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
           <div class="relative z-20 text-white space-y-4 sm:space-y-6 px-4">
             <h2 class="text-xl md:text-2xl font-light opacity-90">
               {{ slide.subtitle }}
             </h2>
-            <h1
-              class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight"
-            >
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
               {{ slide.title }}
             </h1>
             <p class="text-base md:text-lg opacity-80 max-w-2xl mx-auto">
               {{ slide.description }}
             </p>
-            <button
-              @click="handleShopNow"
-              class="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-primary-700 transform hover:scale-105 transition duration-300 shadow-lg pointer-events-auto"
-            >
+            <button @click="handleShopNow"
+              class="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-primary-700 transform hover:scale-105 transition duration-300 shadow-lg pointer-events-auto">
               {{ slide.cta }}
             </button>
           </div>
@@ -194,21 +171,13 @@ const handleShopNow = () => {
       </div>
     </div>
 
-    <div
-      class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20"
-    >
-      <button
-        v-for="(_, index) in slides"
-        :key="index"
-        @click="goToSlide(index)"
-        :class="[
-          'w-3 h-3 rounded-full transition-all duration-300',
-          index === currentSlide
-            ? 'bg-white scale-125'
-            : 'bg-white/50 hover:bg-white/70',
-        ]"
-        aria-label="Go to slide"
-      ></button>
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <button v-for="(_, index) in slides" :key="index" @click="goToSlide(index)" :class="[
+        'w-3 h-3 rounded-full transition-all duration-300',
+        index === currentSlide
+          ? 'bg-white scale-125'
+          : 'bg-white/50 hover:bg-white/70',
+      ]" aria-label="Go to slide"></button>
     </div>
   </div>
 </template>

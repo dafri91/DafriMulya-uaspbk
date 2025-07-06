@@ -41,10 +41,8 @@ const continueShopping = () => {
     <div v-else-if="favoriteProducts.length === 0" class="text-center py-12">
       <h2 class="text-2xl font-semibold text-gray-900 mb-2">No favorites yet</h2>
       <p class="text-gray-600 mb-8">Start adding products to your favorites!</p>
-      <button
-        @click="continueShopping"
-        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150"
-      >
+      <button @click="continueShopping"
+        class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-150">
         Browse Products
       </button>
     </div>
@@ -53,11 +51,7 @@ const continueShopping = () => {
     <div v-else>
       <p class="text-gray-600 mb-4">{{ favoriteProducts.length }} favorite products</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <ProductCard
-          v-for="product in favoriteProducts"
-          :key="product.id"
-          :product="product"
-        />
+        <ProductCard v-for="product in favoriteProducts" :key="product.id" :product="product" />
       </div>
     </div>
   </div>

@@ -24,7 +24,7 @@ const handleLogin = async () => {
   error.value = ''
 
   const result = await authStore.login(form.value.email, form.value.password)
-  
+
   if (result.success && authStore.isAdmin) {
     router.push('/admin/dashboard')
   } else if (result.success && !authStore.isAdmin) {
@@ -62,10 +62,8 @@ const fillTestAccount = () => {
           <p><strong>Email:</strong> admin@gmail.com</p>
           <p><strong>Password:</strong> admin@123</p>
         </div>
-        <button
-          @click="fillTestAccount"
-          class="mt-2 text-xs bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition duration-150"
-        >
+        <button @click="fillTestAccount"
+          class="mt-2 text-xs bg-orange-600 text-white px-3 py-1 rounded hover:bg-orange-700 transition duration-150">
           Use Test Admin Account
         </button>
       </div>
@@ -76,28 +74,18 @@ const fillTestAccount = () => {
             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
               Admin Email
             </label>
-            <input
-              id="email"
-              v-model="form.email"
-              type="email"
-              required
+            <input id="email" v-model="form.email" type="email" required
               class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-              placeholder="Enter admin email"
-            >
+              placeholder="Enter admin email">
           </div>
-          
+
           <div>
             <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
               Admin Password
             </label>
-            <input
-              id="password"
-              v-model="form.password"
-              type="password"
-              required
+            <input id="password" v-model="form.password" type="password" required
               class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10"
-              placeholder="Enter admin password"
-            >
+              placeholder="Enter admin password">
           </div>
         </div>
 
@@ -106,11 +94,8 @@ const fillTestAccount = () => {
         </div>
 
         <div>
-          <button
-            type="submit"
-            :disabled="loading"
-            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition duration-150"
-          >
+          <button type="submit" :disabled="loading"
+            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">
             <span v-if="loading">Signing in...</span>
             <span v-else>Admin Sign In</span>
           </button>

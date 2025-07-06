@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useProductsStore } from '../store/products'
 import HeroSlider from '../components/HeroSlider.vue'
@@ -21,6 +21,10 @@ const handleCategoryClick = (category) => {
   productsStore.setSelectedCategory(category.name)
   router.push('/products')
 }
+
+const featuredPreview = computed(() =>
+  productsStore.featuredProducts.slice(0, 10)
+)
 </script>
 
 <template>
@@ -66,8 +70,15 @@ const handleCategoryClick = (category) => {
         </div>
 
         <div v-else class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          <ProductCard v-for="product in productsStore.featuredProducts" :key="product.id" :product="product" />
+          <ProductCard v-for="product in featuredPreview" :key="product.id" :product="product" />
         </div>
+        <div class="mt-8 text-center">
+          <button @click="handleShopNow"
+            class="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition duration-300">
+            Lihat Produk Lainnya
+          </button>
+        </div>
+
       </div>
     </section>
 

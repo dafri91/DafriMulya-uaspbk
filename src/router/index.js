@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useAuthStore } from '../store/auth'; // 🟢 penting! untuk guard
+import { useAuthStore } from "../store/auth"; //  penting! untuk guard
 
 // Lazy load all views for better performance
 const HomeView = () => import("../views/HomeView.vue");
@@ -25,18 +25,65 @@ const routes = [
   { path: "/login", name: "Login", component: LoginView },
   { path: "/register", name: "Register", component: RegisterView },
   { path: "/products", name: "Products", component: ProductListView },
-  { path: "/products/:id", name: "ProductDetail", component: ProductDetailView, props: true },
-  { path: "/cart", name: "Cart", component: CartView },
-  { path: "/favorites", name: "Favorites", component: FavoritesView, meta: { requiresAuth: true } },
-  { path: "/checkout", name: "Checkout", component: CheckoutView, meta: { requiresAuth: true } },
-  { path: "/orders", name: "Orders", component: OrdersView, meta: { requiresAuth: true } },
-  { path: "/profile", name: "Profile", component: ProfileView, meta: { requiresAuth: true } },
+  {
+    path: "/products/:id",
+    name: "ProductDetail",
+    component: ProductDetailView,
+    props: true,
+  },
 
-  // Admin routes
+  //  User-only routes
+  {
+    path: "/cart",
+    name: "Cart",
+    component: CartView,
+    meta: { requiresAuth: true, userOnly: true },
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: CheckoutView,
+    meta: { requiresAuth: true, userOnly: true },
+  },
+  {
+    path: "/orders",
+    name: "Orders",
+    component: OrdersView,
+    meta: { requiresAuth: true, userOnly: true },
+  },
+  {
+    path: "/favorites",
+    name: "Favorites",
+    component: FavoritesView,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: ProfileView,
+    meta: { requiresAuth: true },
+  },
+
+  // Admin-only routes
   { path: "/admin/login", name: "AdminLogin", component: AdminLoginView },
-  { path: "/admin/dashboard", name: "AdminDashboard", component: AdminDashboardView, meta: { requiresAdmin: true } },
-  { path: "/admin/products", name: "AdminProducts", component: AdminProductsView, meta: { requiresAdmin: true } },
-  { path: "/admin/orders", name: "AdminOrders", component: AdminOrdersView, meta: { requiresAdmin: true } },
+  {
+    path: "/admin/dashboard",
+    name: "AdminDashboard",
+    component: AdminDashboardView,
+    meta: { requiresAdmin: true },
+  },
+  {
+    path: "/admin/products",
+    name: "AdminProducts",
+    component: AdminProductsView,
+    meta: { requiresAdmin: true },
+  },
+  {
+    path: "/admin/orders",
+    name: "AdminOrders",
+    component: AdminOrdersView,
+    meta: { requiresAdmin: true },
+  },
   // { path: "/admin/reviews", name: "AdminReviews", component: AdminReviewsView, meta: { requiresAdmin: true } },
 ];
 
@@ -48,17 +95,23 @@ const router = createRouter({
   },
 });
 
-// ✅ Navigation Guard
+//  Navigation Guard
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
 
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
+  const isUserOnly = to.matched.some((record) => record.meta.userOnly);
 
   if (requiresAdmin && !authStore.isAdmin) {
+    // Hanya admin boleh ke admin area
     next({ name: "AdminLogin" });
   } else if (requiresAuth && !authStore.isAuthenticated) {
+    // Harus login untuk halaman yang perlu auth
     next({ name: "Login" });
+  } else if (isUserOnly && authStore.isAdmin) {
+    //  Admin mencoba akses halaman user-only
+    next({ name: "AdminDashboard" });
   } else {
     next();
   }

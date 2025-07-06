@@ -1,123 +1,147 @@
-import { defineStore } from 'pinia'
-import { db, ref, push, set, get, update } from '../firebase'
-import { useAuthStore } from './auth'
+import { defineStore } from "pinia";
+import { db, ref, push, set, get, update } from "../firebase";
+import { useAuthStore } from "./auth";
 
-export const useOrdersStore = defineStore('orders', {
+export const useOrdersStore = defineStore("orders", {
   state: () => ({
     orders: [],
     loading: false,
-    error: null
+    error: null,
   }),
 
   getters: {
     userOrders: (state) => {
-      const authStore = useAuthStore()
-      if (!authStore.user) return []
-      return state.orders.filter(order => order.userId === authStore.user.uid)
-    }
+      const authStore = useAuthStore();
+      if (!authStore.user) return [];
+      return state.orders.filter(
+        (order) => order.userId === authStore.user.uid
+      );
+    },
   },
 
   actions: {
+    // User create their own order
     async createOrder(orderData) {
-      this.loading = true
-      this.error = null
-      const authStore = useAuthStore()
+      this.loading = true;
+      this.error = null;
+      const authStore = useAuthStore();
 
       try {
-        const newRef = push(ref(db, `orders/${authStore.user.uid}`))
+        const newRef = push(ref(db, `orders/${authStore.user.uid}`));
         await set(newRef, {
           ...orderData,
           createdAt: new Date().toISOString(),
-          status: 'pending'
-        })
-        await this.fetchOrders()
-        return { success: true }
+          status: "pending",
+        });
+
+        await this.fetchOrders();
+        return { success: true };
       } catch (e) {
-        this.error = e.message
-        return { success: false, error: e.message }
+        this.error = e.message;
+        return { success: false, error: e.message };
       } finally {
-        this.loading = false
+        this.loading = false;
       }
     },
 
+    // Fetch orders for admin or user
     async fetchOrders() {
-      this.loading = true
-      this.error = null
-      const authStore = useAuthStore()
+      this.loading = true;
+      this.error = null;
+      const authStore = useAuthStore();
 
       try {
         if (authStore.isAdmin) {
-          const snapshot = await get(ref(db, 'orders'))
+          // Admin sees all orders
+          const snapshot = await get(ref(db, "orders"));
           if (snapshot.exists()) {
-            const allOrders = []
-            const ordersData = snapshot.val()
+            const allOrders = [];
+            const data = snapshot.val();
 
-            for (const uid in ordersData) {
-              const userOrders = ordersData[uid]
+            for (const uid in data) {
+              const userOrders = data[uid];
               for (const orderId in userOrders) {
+                const order = userOrders[orderId];
                 allOrders.push({
                   id: orderId,
                   userId: uid,
-                  ...userOrders[orderId]
-                })
+                  shippingName: order?.shippingAddress
+                    ? `${order.shippingAddress.firstName} ${order.shippingAddress.lastName}`
+                    : "",
+                  ...order,
+                });
               }
             }
 
-            this.orders = allOrders
+            this.orders = allOrders;
           } else {
-            this.orders = []
+            this.orders = [];
           }
-        } else {
-          const snapshot = await get(ref(db, `orders/${authStore.user.uid}`))
+        } else if (authStore.isAuthenticated) {
+          // User sees their own orders
+          const snapshot = await get(ref(db, `orders/${authStore.user.uid}`));
           if (snapshot.exists()) {
             this.orders = Object.entries(snapshot.val()).map(([id, val]) => ({
               id,
               userId: authStore.user.uid,
-              ...val
-            }))
+              shippingName: val?.shippingAddress
+                ? `${val.shippingAddress.firstName} ${val.shippingAddress.lastName}`
+                : "",
+              ...val,
+            }));
           } else {
-            this.orders = []
+            this.orders = [];
           }
+        } else {
+          this.clearOrders();
         }
       } catch (e) {
-        this.error = e.message
+        this.error = e.message;
       } finally {
-        this.loading = false
+        this.loading = false;
       }
     },
 
-    // ✅ Tambahan: Update status order (khusus admin)
+    // Admin update order status
     async updateOrderStatus(orderId, newStatus) {
-      const authStore = useAuthStore()
+      const authStore = useAuthStore();
       if (!authStore.isAdmin) {
-        throw new Error('Only admin can update order status')
+        throw new Error("Only admin can update order status");
       }
 
       try {
-        const snapshot = await get(ref(db, 'orders'))
-        if (!snapshot.exists()) throw new Error('Orders not found')
+        // Find UID for the order
+        const snapshot = await get(ref(db, "orders"));
+        if (!snapshot.exists()) throw new Error("Orders not found");
 
-        const allOrders = snapshot.val()
-        let targetUid = null
+        const allOrders = snapshot.val();
+        let targetUid = null;
 
         for (const uid in allOrders) {
           if (orderId in allOrders[uid]) {
-            targetUid = uid
-            break
+            targetUid = uid;
+            break;
           }
         }
 
-        if (!targetUid) throw new Error('Order not found')
+        if (!targetUid) throw new Error("Order not found");
 
+        // Update the order status
         await update(ref(db, `orders/${targetUid}/${orderId}`), {
-          status: newStatus
-        })
+          status: newStatus,
+        });
 
-        await this.fetchOrders()
+        await this.fetchOrders();
       } catch (e) {
-        console.error('Failed to update order status:', e)
-        this.error = e.message
+        this.error = e.message;
+        console.error("Failed to update order status:", e);
       }
-    }
-  }
-})
+    },
+
+    clearOrders() {
+      this.orders = [];
+      this.loading = false;
+      this.error = null;
+    },
+  },
+});

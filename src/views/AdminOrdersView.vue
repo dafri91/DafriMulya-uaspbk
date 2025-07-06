@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useOrdersStore } from '../store/orders'
+import { useAuthStore } from '../store/auth'
 
 const ordersStore = useOrdersStore()
+const authStore = useAuthStore()
 const selectedOrder = ref(null)
 
 const formatPrice = (price) => {
@@ -12,6 +14,7 @@ const formatPrice = (price) => {
     minimumFractionDigits: 0
   }).format(price)
 }
+
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -52,9 +55,11 @@ const closeOrderDetail = () => {
 }
 
 onMounted(async () => {
-  await ordersStore.fetchOrders()
+  await authStore.fetchUser();  // PASTIKAN ROLE LOADED
+  await ordersStore.fetchOrders();
 })
 </script>
+
 
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -100,11 +105,8 @@ onMounted(async () => {
                 {{ formatPrice(order.total) }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <select
-                  :value="order.status"
-                  @change="updateOrderStatus(order.id, $event.target.value)"
-                  :class="['px-2 py-1 rounded-full text-xs font-medium capitalize', getStatusColor(order.status)]"
-                >
+                <select :value="order.status" @change="updateOrderStatus(order.id, $event.target.value)"
+                  :class="['px-2 py-1 rounded-full text-xs font-medium capitalize', getStatusColor(order.status)]">
                   <option value="pending">Pending</option>
                   <option value="processing">Processing</option>
                   <option value="shipped">Shipped</option>
@@ -113,10 +115,7 @@ onMounted(async () => {
                 </select>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <button
-                  @click="viewOrder(order)"
-                  class="text-primary hover:text-primary/80"
-                >
+                <button @click="viewOrder(order)" class="text-primary hover:text-primary/80">
                   View Details
                 </button>
               </td>
@@ -145,12 +144,14 @@ onMounted(async () => {
             <div class="space-y-2 text-sm">
               <div><strong>Order ID:</strong> #{{ selectedOrder.id }}</div>
               <div><strong>Date:</strong> {{ formatDate(selectedOrder.createdAt) }}</div>
-              <div><strong>Status:</strong> 
-                <span :class="['px-2 py-1 rounded-full text-xs font-medium capitalize ml-2', getStatusColor(selectedOrder.status)]">
+              <div><strong>Status:</strong>
+                <span
+                  :class="['px-2 py-1 rounded-full text-xs font-medium capitalize ml-2', getStatusColor(selectedOrder.status)]">
                   {{ selectedOrder.status }}
                 </span>
               </div>
-              <div><strong>Payment Method:</strong> {{ selectedOrder.paymentMethod.replace('_', ' ').toUpperCase() }}</div>
+              <div><strong>Payment Method:</strong> {{ selectedOrder.paymentMethod.replace('_', ' ').toUpperCase() }}
+              </div>
               <div><strong>Total:</strong> {{ formatPrice(selectedOrder.total) }}</div>
             </div>
           </div>
@@ -163,7 +164,8 @@ onMounted(async () => {
               <p>{{ selectedOrder.shippingAddress.email }}</p>
               <p>{{ selectedOrder.shippingAddress.phone }}</p>
               <p>{{ selectedOrder.shippingAddress.address }}</p>
-              <p>{{ selectedOrder.shippingAddress.city }}, {{ selectedOrder.shippingAddress.state }} {{ selectedOrder.shippingAddress.zipCode }}</p>
+              <p>{{ selectedOrder.shippingAddress.city }}, {{ selectedOrder.shippingAddress.state }} {{
+                selectedOrder.shippingAddress.zipCode }}</p>
             </div>
           </div>
         </div>
@@ -172,16 +174,9 @@ onMounted(async () => {
         <div>
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Order Items</h3>
           <div class="space-y-4">
-            <div
-              v-for="item in selectedOrder.items"
-              :key="item.id"
-              class="flex items-center space-x-4 p-4 border rounded-lg"
-            >
-              <img
-                :src="item.image"
-                :alt="item.name"
-                class="w-16 h-16 object-cover rounded-lg"
-              >
+            <div v-for="item in selectedOrder.items" :key="item.id"
+              class="flex items-center space-x-4 p-4 border rounded-lg">
+              <img :src="item.image" :alt="item.name" class="w-16 h-16 object-cover rounded-lg">
               <div class="flex-1">
                 <h4 class="font-medium text-gray-900">{{ item.name }}</h4>
                 <p class="text-sm text-gray-600">{{ item.brand }}</p>
