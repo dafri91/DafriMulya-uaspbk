@@ -96,14 +96,14 @@ const fillTestAccount = () => {
         </div>
 
         <!-- Tambahkan bagian ini -->
-        <div class="text-center">
+        <!-- <div class="text-center">
           <p class="text-sm text-gray-600 mt-2">
             Admin access?
             <router-link to="/admin/login" class="font-medium text-primary hover:text-primary/80">
               Admin Login
             </router-link>
           </p>
-        </div>
+        </div> -->
 
       </form>
     </div>
