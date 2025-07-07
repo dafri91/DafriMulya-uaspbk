@@ -32,7 +32,7 @@ const addToCart = async (event) => {
   if (!checkAuth()) return;
 
   if (authStore.isAdmin) {
-    alert("Admin tidak bisa menambahkan ke keranjang.");
+    alert("Admins cannot add to cart.");
     return;
   }
 

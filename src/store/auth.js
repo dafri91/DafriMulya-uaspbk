@@ -45,7 +45,7 @@ export const useAuthStore = defineStore("auth", {
           lastName,
           role: "user",
           createdAt: new Date().toISOString(),
-          uid, // ✅ Pastikan UID ikut disimpan
+          uid, //  Pastikan UID ikut disimpan
         };
 
         await set(ref(db, `users/${uid}`), userData);
@@ -53,7 +53,7 @@ export const useAuthStore = defineStore("auth", {
         this.user = userData;
         localStorage.setItem("user", JSON.stringify(this.user));
 
-        console.log("✅ Registered user:", this.user);
+        console.log(" Registered user:", this.user);
         return { success: true };
       } catch (e) {
         this.error = e.message;
@@ -82,7 +82,7 @@ export const useAuthStore = defineStore("auth", {
           this.user = { ...userData, uid };
           localStorage.setItem("user", JSON.stringify(this.user));
 
-          console.log("✅ Logged in user:", this.user);
+          console.log(" Logged in user:", this.user);
 
           // Fetch related stores
           const cartStore = useCartStore();
@@ -121,7 +121,7 @@ export const useAuthStore = defineStore("auth", {
       favoritesStore.clearFavorites?.();
       ordersStore.clearOrders?.();
 
-      console.log("✅ User logged out, state cleared.");
+      console.log(" User logged out, state cleared.");
     },
 
     /**
@@ -131,11 +131,11 @@ export const useAuthStore = defineStore("auth", {
       const u = localStorage.getItem("user");
       this.user = u ? JSON.parse(u) : null;
 
-      console.log("🔄 Loaded user from localStorage:", this.user);
+      console.log("Loaded user from localStorage:", this.user);
 
       // Safety: pastikan UID ada
       if (this.user && !this.user.uid) {
-        console.warn("⚠️ User in localStorage missing UID! Forcing logout.");
+        console.warn("User in localStorage missing UID! Forcing logout.");
         this.user = null;
         localStorage.removeItem("user");
       }
@@ -157,10 +157,10 @@ export const useAuthStore = defineStore("auth", {
         this.user = newUser;
         localStorage.setItem("user", JSON.stringify(this.user));
 
-        console.log("✅ Updated user:", this.user);
+        console.log(" Updated user:", this.user);
         return true;
       } catch (e) {
-        console.error("❌ Failed to update user:", e);
+        console.error(" Failed to update user:", e);
         return false;
       }
     },
@@ -182,10 +182,10 @@ export const useAuthStore = defineStore("auth", {
           this.user = { ...userData, uid: this.user.uid };
           localStorage.setItem("user", JSON.stringify(this.user));
 
-          console.log("✅ Fetched user from DB:", this.user);
+          console.log(" Fetched user from DB:", this.user);
         }
       } catch (e) {
-        console.error("❌ Failed to fetch user from DB:", e);
+        console.error("Failed to fetch user from DB:", e);
         this.error = e.message;
       } finally {
         this.loading = false;

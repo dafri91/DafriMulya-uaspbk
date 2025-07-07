@@ -59,7 +59,7 @@ const sortOptions = [
 
     <!-- Sort By -->
     <div class="mb-6">
-      <h4 class="font-medium text-gray-900 mb-3">Urutkan</h4>
+      <h4 class="font-medium text-gray-900 mb-3">Sort By</h4>
       <div class="flex flex-col space-y-2">
         <button v-for="option in sortOptions" :key="option.value"
           @click="props.productsStore.setSortOption(option.value)" :class="[

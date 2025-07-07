@@ -2,7 +2,7 @@
 import { defineStore } from "pinia";
 import { db, ref, get, push, set, update, remove } from "../firebase";
 
-// 🔧 Sinonim berdasarkan kategori
+// Sinonim berdasarkan kategori
 const categorySynonyms = {
   Laptops: ["laptop", "notebook", "macbook", "asus", "dell", "lenovo", "acer"],
   Smartphones: [

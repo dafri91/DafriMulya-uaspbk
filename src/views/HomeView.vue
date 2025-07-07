@@ -75,7 +75,7 @@ const featuredPreview = computed(() =>
         <div class="mt-8 text-center">
           <button @click="handleShopNow"
             class="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition duration-300">
-            Lihat Produk Lainnya
+           View More Products
           </button>
         </div>
 

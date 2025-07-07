@@ -82,15 +82,15 @@ export const useCartStore = defineStore("cart", {
       const authStore = useAuthStore();
       if (!authStore.isAuthenticated) {
         this.error = "Please login to add items to cart.";
-        console.warn("⚠️ User belum login.");
+        console.warn("User not logged in.");
         return;
       }
 
       const uid = authStore.user?.uid;
 
-      console.log("🧪 UID:", uid);
+      console.log("UID:", uid);
       if (!uid) {
-        console.warn("❌ authStore.user.uid undefined");
+        console.warn("authStore.user.uid undefined");
         this.error = "User UID not found.";
         return;
       }
@@ -99,18 +99,18 @@ export const useCartStore = defineStore("cart", {
       this.error = null;
 
       try {
-        console.log("🛒 Menambahkan ke cart di path: cart/" + uid);
+        console.log("Adding to cart at path: cart/" + uid);
         const existing = this.cartItems.find(
           (item) => item.productId === product.id
         );
 
         if (existing) {
-          console.log("🔄 Update quantity");
+          console.log("Update quantity");
           await update(dbRef(db, `cart/${uid}/${existing.id}`), {
             quantity: existing.quantity + quantity,
           });
         } else {
-          console.log("➕ Tambah produk baru");
+          console.log(" Add new product");
           const newRef = push(dbRef(db, `cart/${uid}`));
           await set(newRef, {
             productId: product.id,
@@ -123,7 +123,7 @@ export const useCartStore = defineStore("cart", {
         await this.fetchCart();
         this.saveToLocalStorage();
       } catch (e) {
-        console.error("❌ [addToCart] Firebase Error:", e.message, e);
+        console.error("[addToCart] Firebase Error:", e.message, e);
         this.error = e.message;
       } finally {
         this.loading = false;

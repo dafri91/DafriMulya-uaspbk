@@ -60,13 +60,13 @@ onMounted(async () => {
     console.log("Fetched products:", productsStore.products);
 
     if (ordersStore.orders.length === 0) {
-      console.warn("⚠️ Orders kosong. Cek rules Firebase. Mungkin Permission Denied.");
+      console.warn("Orders kosong. Cek rules Firebase. Mungkin Permission Denied.");
     }
 
   } catch (error) {
-    console.error("❌ Error di AdminDashboard:", error.message || error);
+    console.error("Error di AdminDashboard:", error.message || error);
     if (error.message?.includes("Permission denied")) {
-      console.error("🚫 Permission denied – Periksa rules Firebase.");
+      console.error("Permission denied, Periksa rules Firebase.");
     }
   }
 });

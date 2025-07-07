@@ -7,29 +7,29 @@ const slides = [
     title: "Latest MacBook Pro",
     subtitle: "Supercharged by M2 Pro",
     description:
-      "Performa revolusioner dan daya tahan baterai sepanjang hari dalam desain yang menakjubkan.",
+      "Revolutionary performance and all-day battery life in a stunning design.",
     image: "https://img.odcdn.com.br/wp-content/uploads/2022/10/mac.jpg",
-    cta: "Selengkapnya",
+    cta: "Learn More",
   },
   {
     id: 2,
     title: "iPhone 15 Pro",
     subtitle: "Titanium. So strong. So light.",
     description:
-      "Desain titanium yang ringan, sistem kamera pro paling canggih, dan chip A18 Pro yang mengubah segalanya.",
+      "A lightweight titanium design, the most advanced pro camera system, and a game-changing A18 Pro chip.",
     image:
       "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800/https://www.olx.co.id/news/wp-content/uploads/2024/10/iphone-15-pro-max-white.jpg",
-    cta: "Lihat Detail",
+    cta: "View Details",
   },
   {
     id: 3,
     title: "Premium Accessories",
     subtitle: "Enhance your experience",
     description:
-      "Rasakan setiap detail musik dengan headphone dan earbud peredam bising terbaik kami.",
+      "Feel every detail of your music with our best noise-cancelling headphones and earbuds.",
     image:
       "https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    cta: "Jelajahi Sekarang",
+    cta: "Explore Now",
   },
 ];
 

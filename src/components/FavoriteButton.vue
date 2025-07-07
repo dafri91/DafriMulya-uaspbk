@@ -27,7 +27,7 @@ const toggleFavorite = async (event) => {
   }
 
   if (authStore.isAdmin) {
-    alert("Admin tidak bisa menambahkan ke favorit.");
+    alert("Admins cannot add to favorites.");
     return;
   }
 
