@@ -61,7 +61,7 @@ Pada awal pengembangan, **JSON-Server** digunakan sebagai backend lokal sementar
 
 ## 🌐 Struktur Firebase Realtime Database
 
-```json
+```
 /users/{uid}           → Data pengguna (nama, email, role)
 /products/{id}         → Detail produk
 /categories/{id}       → Kategori produk
