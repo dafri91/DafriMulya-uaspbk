@@ -144,13 +144,13 @@ onMounted(async () => {
       </div>
 
       <!-- Debug info (remove in production) -->
-      <div class="bg-gray-50 rounded-lg p-4 mb-8 text-sm">
+      <!-- <div class="bg-gray-50 rounded-lg p-4 mb-8 text-sm">
         <h4 class="font-semibold mb-2">Debug Info:</h4>
         <p>User role: {{ authStore.user?.role }}</p>
         <p>Is Admin: {{ authStore.isAdmin }}</p>
         <p>Orders count: {{ ordersStore.orders.length }}</p>
         <p>Products count: {{ productsStore.products.length }}</p>
-      </div>
+      </div> -->
 
       <!-- Quick Actions -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
